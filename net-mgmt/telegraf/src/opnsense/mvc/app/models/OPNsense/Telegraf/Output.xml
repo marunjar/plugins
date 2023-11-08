@@ -149,6 +149,12 @@
             <mask>/^([0-9a-zA-Z._\-]){1,128}$/u</mask>
             <ValidationMessage>Only characters, numbers, a dot, underscore and hyphen allowed. Do not use more than 128 characters.</ValidationMessage>
         </mqtt_topic_prefix>
+        <mqtt_topic type="TextField">
+            <default></default>
+            <Required>N</Required>
+            <mask>/^([0-9a-zA-Z._\-\\]){1,128}$/u</mask>
+            <ValidationMessage>Only characters, numbers, a dot, underscore, hyphen and slash allowed. Do not use more than 128 characters.</ValidationMessage>
+        </mqtt_topic>
         <mqtt_servers type="TextField">
             <default></default>
             <Required>N</Required>

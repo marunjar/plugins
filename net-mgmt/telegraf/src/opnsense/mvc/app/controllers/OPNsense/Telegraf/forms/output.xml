@@ -223,9 +223,20 @@
     </field>
     <field>
         <id>output.mqtt_topic_prefix</id>
+        <label>MQTT topic prefix</label>
+        <type>text</type>
+        <help>Topic prefix for producer messages.</help>
+    </field>
+    <field>
+        <id>output.mqtt_topic</id>
         <label>MQTT topic</label>
         <type>text</type>
-        <help>Topic for producer messages.</help>
+        <help>
+              Topic for producer messages: Each path segment accepts either a template placeholder, an environment variable, or a tag key of the form `{{.Tag "tag_key_name"]]`.
+              Empty path elements as well as special MQTT characters (such as `+` or `#`) are invalid to form the topic name and will lead to an error.
+              In case a tag is missing in the metric, that path segment omitted for the final topic.
+              By default, Telegraf uses "telegraf/{{ .Hostname }}/{{ .PluginName }}"
+        </help>
     </field>
     <field>
         <id>output.mqtt_servers</id>
@@ -265,7 +276,7 @@
     </field>
     <field>
         <id>output.mqtt_insecure_skip_verify</id>
-        <label>MQTT Client ID</label>
+        <label>Insecure skip verify</label>
         <type>checkbox</type>
         <help>Use TLS, but skip chain and host verification.</help>
     </field>
